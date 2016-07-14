@@ -1,0 +1,22 @@
+.reviews .heading {
+	margin-left: 40%;
+	font-size: 2em;
+	color:#FF8386;
+}
+.reviews .rating {
+	margin-top: 20%;
+	font-size:2em;
+	width:100px;
+}
+
+.reviews .trueRating {
+	color:#FF8386;
+}
+
+.reviews .remRating {
+	color:#3D3D3D;
+}
+
+.reviews .reviewbox {
+	
+}

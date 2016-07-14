@@ -1,0 +1,21 @@
+<ion-content delegate-handle="mainScroll">
+ <form >
+  <div class="list">
+    <!-- Get vendor name as vendorName and vendor Id as vendorId from database on page load -->
+    <label class="item item-input item-select">
+      <div class="input-label" >Select Vendor</div>
+      <select ng-model="vendorId"> 
+        <option  ng-repeat="vendor in allVendors track by $index" value="{{vendor.vendorId}}">{{vendor.vendorName}}</option>
+      </select>
+    </label>
+    <br>
+    <label class="item item-input" >
+      <span  class="input-label">Code:</span>
+      <input type="text" ng-model="Code">
+    </label> 
+    <div class="padding">
+      <button ng-click="updateTabList(Code,vendorId)" class="button button-block button-positive">Activate</button>
+    </div>
+  </div>
+</form>
+</ion-content>
