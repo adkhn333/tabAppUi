@@ -1,4 +1,6 @@
 vendorView.controller('vendorAppCtrl' , ['$scope','$timeout','$cordovaDevice', function($scope,$timeout,$cordovaDevice){
+  $scope.vendorName = "";
+
   //return all city name and city id 
   $scope.cities = [];
   firebase.database().ref('city').once('value', function(snapshot){
@@ -29,26 +31,33 @@ vendorView.controller('vendorAppCtrl' , ['$scope','$timeout','$cordovaDevice', f
     firebase.database().ref('vendor/'+cityId).once('value', function(snapshot){
       angular.forEach(snapshot.val(),function(value){
        var vendorObj = {
-        id : value.vendorId,
-        name : value.vendorName,
-        cityName : value.address.cityName,
-        landmark : value.address.landmark
-      }
-      
-      $scope.allVendors.push(vendorObj);
-      console.log($scope.allVendors);
-  
+          id : value.vendorId,
+          name : value.vendorName,
+          cityName : value.address.cityName,
+          landmark : value.address.landmark
+        }
+        
+        $scope.allVendors.push(vendorObj);
+        console.log($scope.allVendors);
+    
+      });
     });
-  })
   }
+
+
+  $scope.unsetName=function(){
+    $scope.fullName='';
+  }
+
 
   $scope.saveId=function(item){
     $scope.vendorId = item.id;
     console.log(item);
     $timeout(function(){
-     $scope.fullName=item.name;
+     $scope.fullName = item.name+','+item.landmark+','+item.cityName;
+     console.log($scope.vendorName);
     },100)
-    $scope.allVendors=[];
+    $scope.vendorName='';
   }
   // updates vendorTab object in database by sending activation date and deviceId to database
   $scope.updateTabList = function(code){

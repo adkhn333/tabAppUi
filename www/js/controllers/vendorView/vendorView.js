@@ -1,6 +1,7 @@
     // here TabId is the unique id that is assigned to each tab and it is stored in local storage during activation of tab
     // here debit Id == impressionAssignId
- vendorView.controller('vendorViewCtrl' , ['$scope','$localStorage','$sessionStorage','$timeout', '$ionicModal','$ionicHistory',function($scope,$localStorage,$sessionStorage,$timeout,$ionicModal,$ionicHistory){  
+ vendorView.controller('vendorViewCtrl' , ['$scope','$localStorage','$sessionStorage','$timeout', '$ionicModal','$ionicHistory','$location',
+  function($scope,$localStorage,$sessionStorage,$timeout,$ionicModal,$ionicHistory,$location){  
     console.log("vendorView controller working");
     
     // $scope.history = $ionicHistory.viewHistory();
@@ -11,6 +12,39 @@
    
     //    console.log($scope.history);
      
+
+    $scope.status=0;
+    $scope.fun=function(index){
+      $scope.status=index;
+      console.log(index);
+    }
+
+     $scope.links=[
+      {
+        type:'ion-navicon-round',
+        link:'menu',
+        click:'menuPage()',
+        title:'Home'
+      },
+      {
+        type:'ion-images',
+        link:'gallery',
+        click:'galleryPage()',
+        title:'Gallery'
+      },
+      {
+        type:'ion-star',
+        link:'reviews',
+        click:'reviewPage()',
+        title:'Reviews'
+      },
+      {
+        type:'ion-ios-bookmarks',
+        link:'fabBook',
+        click:'menuPage()',
+        title:'FabBook'
+      }
+     ];
 
       $scope.history = Object.keys($ionicHistory.viewHistory().views).length;
       console.log($scope.history);

@@ -1,7 +1,7 @@
 vendorView.controller('startCtrl',['$scope','$localStorage','$sessionStorage','$timeout','$ionicLoading','$cordovaFileTransfer',function($scope,$localStorage,$sessionStorage,$timeout,$ionicLoading,$cordovaFileTransfer){
         
     console.log("start controller working");
-   // var date = new Date().getTime();
+   $scope.date = new Date();
    // var datevalues = ('0' + date.getDate()).slice(-2) + '-' + ('0' + (date.getMonth() + 1)).slice(-2) + '-' + date.getFullYear() + ' ' + date.getHours() + ':' + date.getMinutes();
    // $scope.bdatetime = datevalues;
    // console.log($scope.bdatetime);

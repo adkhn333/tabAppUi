@@ -30,51 +30,51 @@ vendorView.config(function($stateProvider, $urlRouterProvider) {
   //$urlRouterProvider.otherwise("/indexView.html");
   $stateProvider
   .state('vendorView', {
-    cache: false,
+    // cache: false,
     url: '/vendorView',
-    templateUrl: 'views/vendorView.html',
+    templateUrl: 'templates/vendorView.html',
     controller:'vendorViewCtrl'
   })
   .state('activate', {
     cache: false,
     url: '/activate',
-    templateUrl: 'views/activate.html',
+    templateUrl: 'templates/activate.html',
     controller: 'vendorAppCtrl'
   })
   .state('start', {
     cache: false,
     url: '/start',
-    templateUrl: 'views/start.html',
+    templateUrl: 'templates/start.html',
     controller: 'startCtrl'
   })
   .state('started', {
     cache: false,
     url: '/started',
-    templateUrl: 'views/started.html',
+    templateUrl: 'templates/started.html',
     controller: 'startedCtrl'
   })
   //menu
   .state('menu', {
     url: '/menu',
-    templateUrl: 'views/vendor-services-list.html',
-    controller: 'VendorServicesListCtrl'
+      templateUrl: 'templates/vendor-services-list.html',
+      controller: 'VendorServicesListCtrl'
   })
   //gallery
   .state('gallery', {
     url: '/gallery',
-    templateUrl: 'views/vendorDetails.html',
+    templateUrl: 'templates/vendorDetails.html',
     controller: 'VendorDetailsCtrl'
   })
   //fabBook
   .state('fabBook', {
     url:'/fabBook',
-    templateUrl: 'views/feed.html',
+    templateUrl: 'templates/feed.html',
     controller: 'FeedCtrl'
   })
   //review
   .state('reviews', {
     url:'/reviews',
-    templateUrl: 'views/reviews.html',
+    templateUrl: 'templates/reviews.html',
     controller: 'reviewCtrl'
   });
 

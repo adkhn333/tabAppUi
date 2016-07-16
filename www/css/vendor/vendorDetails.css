@@ -1,4 +1,7 @@
 /*CSS for vendor detail*/
+.vendorDetails{
+	max-height:35%;
+}
 
 .vendorDetails .slider-pager .slider-pager-page{
 	display:none;
