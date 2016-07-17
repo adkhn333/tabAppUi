@@ -1,22 +1,43 @@
-.reviews .heading {
-	margin-left: 40%;
-	font-size: 2em;
-	color:#FF8386;
+.review{
+	height:70%;
 }
-.reviews .rating {
-	margin-top: 20%;
-	font-size:2em;
-	width:100px;
+#reviewCard{
+	border-radius:6px;
 }
-
-.reviews .trueRating {
-	color:#FF8386;
+.nameReview{
+	font-size: 25px;
+	font-weight: bold;
+	float:left;
 }
-
-.reviews .remRating {
-	color:#3D3D3D;
+.cityReview{
+	clear: both;
 }
-
-.reviews .reviewbox {
-	
+#starRatingOn{
+	font-size: 20px;
+	color: rgb(200, 100, 100);
+}
+#provideRating{
+	width: 90%;
+	margin: auto;
+}
+ul.rating li {
+  display: inline;
+  border: 0px;
+  background: none;
+  padding: 5px 10px;
+}
+ul.rating li i {
+  font-size: 30px;
+}
+.reviewReview{
+	overflow-x:hidden;
+	text-indent: 10px;
+	min-height: 20px;
+}
+#reviewButton{
+	width:16%;
+	position:absolute;
+	bottom:16%;
+	right:10%;
+	border-radius:100%;
 }

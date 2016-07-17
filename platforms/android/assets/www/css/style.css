@@ -2,4 +2,8 @@
 @import url("vendor/vendorDetails.css");
 @import url("feed/feed.css");
 @import url("reviews/review.css");
-@import url("vendorView/vendorView.css")
+@import url("vendorView/vendorView.css");
+@import url("start/start.css");
+@import url("activate/activate.css");
+
+

@@ -1,3 +1,39 @@
+/*//;my css*/
+
+.fabFeed{
+	height:68%;
+}
+.profileFabImage{
+	width:20%;
+	height:20%;
+	border:4px solid #ff8888;
+	border-radius:50%;
+}
+.profileFabPosts{
+	width:10%;
+	height:10%;
+	border:2px solid #ff8888;
+	border-radius:50%;
+	float: left;
+}
+.postData{
+	float: left;
+}
+
+.buttonFollow{
+	font-size: 13px;
+}
+.hashesPosts{
+	text-indent:10%;
+}
+
+.postImage{
+	width: 100%;
+	height:50%;
+}
+
+/*my css ends*/
+
 .fabFeed .feeds{
 	padding:10px;
 	background-color:#d9d9d9;

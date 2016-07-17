@@ -1,9 +1,10 @@
+
 // Ionic Starter App
 
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var vendorView = angular.module('vendorView', ['ionic','ngStorage','ngCordova'])
+var vendorView = angular.module('vendorView', ['ionic','ngStorage','ngCordova','ngTouch'])
 
 vendorView.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -23,14 +24,11 @@ vendorView.run(function($ionicPlatform) {
   });
 })
 
-
-
-
 vendorView.config(function($stateProvider, $urlRouterProvider) {
   //$urlRouterProvider.otherwise("/indexView.html");
   $stateProvider
   .state('vendorView', {
-    // cache: false,
+    cache: false,
     url: '/vendorView',
     templateUrl: 'templates/vendorView.html',
     controller:'vendorViewCtrl'
@@ -54,28 +52,48 @@ vendorView.config(function($stateProvider, $urlRouterProvider) {
     controller: 'startedCtrl'
   })
   //menu
-  .state('menu', {
+  .state('vendorView.menu', {
+    cache: false,
     url: '/menu',
-      templateUrl: 'templates/vendor-services-list.html',
-      controller: 'VendorServicesListCtrl'
+    views: {
+      'menu': {
+        templateUrl: 'templates/vendor-services-list.html',
+        controller: 'VendorServicesListCtrl'
+      }
+    }
   })
   //gallery
-  .state('gallery', {
+  .state('vendorView.gallery', {
+    cache: false,
     url: '/gallery',
-    templateUrl: 'templates/vendorDetails.html',
-    controller: 'VendorDetailsCtrl'
+    views: {
+      'gallery': {
+        templateUrl: 'templates/vendorDetails.html',
+        controller: 'VendorDetailsCtrl'
+      }
+    }
   })
   //fabBook
-  .state('fabBook', {
-    url:'/fabBook',
-    templateUrl: 'templates/feed.html',
-    controller: 'FeedCtrl'
+  .state('vendorView.fabBook', {
+    cache: false,
+    url: '/feed',
+    views: {
+      'feed': {
+        templateUrl: 'templates/feed.html',
+        controller: 'FeedCtrl'
+      }
+    }
   })
   //review
-  .state('reviews', {
-    url:'/reviews',
-    templateUrl: 'templates/reviews.html',
-    controller: 'reviewCtrl'
+  .state('vendorView.reviews', {
+    cache: false,
+    url: '/reviews',
+    views: {
+      'reviews': {
+       templateUrl: 'templates/reviews.html',
+       controller: 'reviewCtrl'
+      }
+    }
   });
 
   $urlRouterProvider.otherwise(function($injector){

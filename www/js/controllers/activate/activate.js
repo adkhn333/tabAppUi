@@ -1,6 +1,4 @@
 vendorView.controller('vendorAppCtrl' , ['$scope','$timeout','$cordovaDevice', function($scope,$timeout,$cordovaDevice){
-  $scope.vendorName = "";
-
   //return all city name and city id 
   $scope.cities = [];
   firebase.database().ref('city').once('value', function(snapshot){
@@ -16,15 +14,6 @@ vendorView.controller('vendorAppCtrl' , ['$scope','$timeout','$cordovaDevice', f
   var timeStamp = new Date().getTime();
   var deviceId =  (Math.random()+' ').substring(2,10)+(Math.random()+' ').substring(2,10);
 
-  // firebase.database().ref('vendor').on('value', function(snapshot){
-  //   angular.forEach(snapshot.val(),function(value){
-  //     $scope.allVendors.push(value);
-  //   });
-  //   $timeout(function(){
-  //     //console.log($scope.allVendors);
-  //   },0)
-  // })
-
   $scope.search=function(cityId){ 
     console.log(cityId);
     $scope.allVendors = [];
@@ -36,7 +25,6 @@ vendorView.controller('vendorAppCtrl' , ['$scope','$timeout','$cordovaDevice', f
           cityName : value.address.cityName,
           landmark : value.address.landmark
         }
-        
         $scope.allVendors.push(vendorObj);
         console.log($scope.allVendors);
     
@@ -44,20 +32,13 @@ vendorView.controller('vendorAppCtrl' , ['$scope','$timeout','$cordovaDevice', f
     });
   }
 
-
-  $scope.unsetName=function(){
-    $scope.fullName='';
-  }
-
-
   $scope.saveId=function(item){
     $scope.vendorId = item.id;
     console.log(item);
     $timeout(function(){
-     $scope.fullName = item.name+','+item.landmark+','+item.cityName;
-     console.log($scope.vendorName);
+     $scope.fullName=item.name+','+item.landmark+','+item.cityName;
     },100)
-    $scope.vendorName='';
+    $scope.allVendors=[];
   }
   // updates vendorTab object in database by sending activation date and deviceId to database
   $scope.updateTabList = function(code){

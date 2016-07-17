@@ -14,39 +14,29 @@ vendorView.controller('vendorAppCtrl' , ['$scope','$timeout','$cordovaDevice', f
   var timeStamp = new Date().getTime();
   var deviceId =  (Math.random()+' ').substring(2,10)+(Math.random()+' ').substring(2,10);
 
-  // firebase.database().ref('vendor').on('value', function(snapshot){
-  //   angular.forEach(snapshot.val(),function(value){
-  //     $scope.allVendors.push(value);
-  //   });
-  //   $timeout(function(){
-  //     //console.log($scope.allVendors);
-  //   },0)
-  // })
-
   $scope.search=function(cityId){ 
     console.log(cityId);
     $scope.allVendors = [];
     firebase.database().ref('vendor/'+cityId).once('value', function(snapshot){
       angular.forEach(snapshot.val(),function(value){
        var vendorObj = {
-        id : value.vendorId,
-        name : value.vendorName,
-        cityName : value.address.cityName,
-        landmark : value.address.landmark
-      }
-      
-      $scope.allVendors.push(vendorObj);
-      console.log($scope.allVendors);
-  
+          id : value.vendorId,
+          name : value.vendorName,
+          cityName : value.address.cityName,
+          landmark : value.address.landmark
+        }
+        $scope.allVendors.push(vendorObj);
+        console.log($scope.allVendors);
+    
+      });
     });
-  })
   }
 
   $scope.saveId=function(item){
     $scope.vendorId = item.id;
     console.log(item);
     $timeout(function(){
-     $scope.fullName=item.name;
+     $scope.fullName=item.name+','+item.landmark+','+item.cityName;
     },100)
     $scope.allVendors=[];
   }

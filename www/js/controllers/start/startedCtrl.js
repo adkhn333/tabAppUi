@@ -1,4 +1,5 @@
-vendorView.controller('startedCtrl',['$scope','$timeout','$localStorage','$sessionStorage','$ionicLoading',function($scope, $timeout,$localStorage,$sessionStorage,$ionicLoading){
+vendorView.controller('startedCtrl',['$scope','$timeout','$localStorage','$sessionStorage','$ionicLoading',
+  function($scope, $timeout,$localStorage,$sessionStorage,$ionicLoading){
   console.log("started controller working");
   // get details of different companies and impression used by companies from local storage array 
   //'company' and  'impressionUsedArray' respectively and then call update function 
@@ -14,7 +15,8 @@ vendorView.controller('startedCtrl',['$scope','$timeout','$localStorage','$sessi
     $scope.update(j,len,company,impressionRetrieveArray);
     $scope.submitQuery();
     $localStorage.imageArray=[];  
-    window.location = "#/start"  }
+    window.location = "#/start"
+  }
   //update the new impression values in database 
   $scope.update = function(j,len,company,impressionRetrieveArray){
     $ionicLoading.show({
@@ -39,15 +41,17 @@ vendorView.controller('startedCtrl',['$scope','$timeout','$localStorage','$sessi
          $scope.updatePrevious(company,j,impressionRetrieveArray);
          j++;
          $scope.update(j,len,company,impressionRetrieveArray);
+          $ionicLoading.hide();
        }
      }).then(function(){
        $scope.updatePrevious(company,j,impressionRetrieveArray);
        j++;
        $scope.update(j,len,company,impressionRetrieveArray);
        $ionicLoading.hide();
-     })
+     });
    };  
- }// checks if used impression is equal to total assigned impression or if today's date is greater than company's endDate 
+ }
+ // checks if used impression is equal to total assigned impression or if today's date is greater than company's endDate 
  // and if true, than move that company details from current to previous path of tab campaigns and change that companies impression status to completed 
  //and delete the same company's information from current path of tab campaigns
  $scope.updatePrevious = function(company,j,impressionRetrieveArray){
@@ -87,8 +91,8 @@ vendorView.controller('startedCtrl',['$scope','$timeout','$localStorage','$sessi
             })
             console.log('deleted from current');
           }
-        })
-      })
+        });
+      });
     }
   }
 
@@ -115,6 +119,6 @@ vendorView.controller('startedCtrl',['$scope','$timeout','$localStorage','$sessi
       updates['marketing/company/content/' + value.companyId + '/users/' +newUserKey] = userData;
       firebase.database().ref().update(updates);
       console.log("Content Updated");
-    })    
+    });    
   }
 }])

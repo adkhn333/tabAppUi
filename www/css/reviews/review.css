@@ -1,3 +1,6 @@
+.review{
+	height:70%;
+}
 #reviewCard{
 	border-radius:6px;
 }
@@ -30,4 +33,11 @@ ul.rating li i {
 	overflow-x:hidden;
 	text-indent: 10px;
 	min-height: 20px;
+}
+#reviewButton{
+	width:16%;
+	position:absolute;
+	bottom:16%;
+	right:10%;
+	border-radius:100%;
 }
