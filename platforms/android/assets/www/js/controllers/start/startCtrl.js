@@ -67,8 +67,8 @@ vendorView.controller('startCtrl',['$scope','$localStorage','$sessionStorage','$
                   $scope.downloadProgress = (progress.loaded / progress.total) * 100;
                 });
               });
-            $scope.imageArray.push(imageObj);
-          //console.log($scope.imageArray);
+          $scope.imageArray.push(imageObj);
+          console.log($scope.imageArray);
         }).then(function(){
           if($scope.imageArray.length == $scope.companyNum){
             console.log($scope.imageArray.length);

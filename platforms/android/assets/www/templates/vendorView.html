@@ -26,23 +26,16 @@
 
   </ion-content>
 
-
-
     <ion-slide-box class="slideSize" 
       does-continue="true" 
-      slide-interval="10000" 
+      slide-interval="1000" 
       does-continue="true" 
       auto-play="true" 
       on-slide-changed="slideHasChanged($index)"
       style="">
       
-      <ion-slide ng-repeat="slide in slides track by $index" ng-click="imagePopup($index)">
+    <ion-slide ng-repeat="slide in slides track by $index">
         <img ng-src="{{slide.targetPath}}"  class="sliderImages"/>
       </ion-slide>
-       <div style="color:white;background-color:#777777;opacity:0.7;
-       text-align:center;border-radius:40%;display: inline;
-       line-height:140%;width: 5%;position:fixed;top:80%;left:40%;">
-        Know More
-        </div>
     </ion-slide-box>
 </ion-view> 
