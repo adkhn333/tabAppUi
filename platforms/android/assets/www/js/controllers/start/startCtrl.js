@@ -1,32 +1,45 @@
 vendorView.controller('startCtrl',['$scope','$localStorage','$sessionStorage','$timeout','$ionicLoading','$cordovaFileTransfer',
   function($scope,$localStorage,$sessionStorage,$timeout,$ionicLoading,$cordovaFileTransfer){
-        
-  console.log("start controller working");
-  $scope.date = new Date();
-  $scope.companyDetails = [];
-  $scope.companyNum = 0;
-  $scope.imageArray = [];
-   $scope.getCompany = function() {
+
+    console.log("start controller working");
+    $scope.date = new Date();
+    $scope.companyDetails = [];
+    $scope.companyNum = 0;
+    $scope.imageArray = [];
+    $scope.getCompany = function() {
     // Start showing the progress
     $localStorage.imageArray = [];
     var impressionArray=[];
     var company=[];
-    var tabId = window.localStorage.getItem('TabId');
+    var tabId = window.localStorage.getItem('tabId');
     //console.log(tabId);
     firebase.database().ref('tabCampaign/'+tabId+'/campaigns/current').once('value', function(snapshot){
-      //console.log(snapshot.val());
-      $scope.companies = snapshot.val();
-      $scope.companyNum = snapshot.numChildren();
-      console.log($scope.companyNum);
-    }).then(function(){
+      $scope.check = snapshot.exists()
+      console.log($scope.check);
+      if($scope.check){
+         //console.log(snapshot.val());
+         $scope.companies = snapshot.val();
+         $scope.companyNum = snapshot.numChildren();
+         console.log($scope.companyNum);
+       }else{
+          $ionicLoading.hide();  
+         console.log("ontime");
+         var statusFlag = 1;
+         window.localStorage.setItem('statusFlag', statusFlag);
+         var currentDate= Math.floor(new Date().getTime()/86400000);
+         window.localStorage.setItem('date', currentDate);
+         window.location= "#/vendorView";
+       }
+
+     }).then(function(){
       //console.log($scope.companies);
       angular.forEach($scope.companies, function(value, key){
         $scope.getImpressions(value);
       })
     });
-  }
+   }
 
-  $scope.getImpressions = function(value){
+   $scope.getImpressions = function(value){
     //console.log(value);
     firebase.database().ref('impressionDebitted/'+value.companyId+'/'+value.debitId).once('value', function(snapshot){
       //console.log(snapshot.val());
@@ -37,14 +50,13 @@ vendorView.controller('startCtrl',['$scope','$localStorage','$sessionStorage','$
       }
     }).then(function(){
       console.log($scope.companyDetails.length);
-      
     })
   }
   $scope.getUrls = function(){
     console.log($scope.companyDetails);
     angular.forEach($scope.companyDetails, function(value, key){
-        firebase.database().ref('marketing/company/content/'+value.companyId).once('value', function(snapshot){
-          console.log('hii');
+      firebase.database().ref('marketing/company/content/'+value.companyId).once('value', function(snapshot){
+        console.log('hii');
           console.log(value);
           console.log(snapshot.val());
           var url= snapshot.val().imageLink; 
@@ -67,37 +79,37 @@ vendorView.controller('startCtrl',['$scope','$localStorage','$sessionStorage','$
                   $scope.downloadProgress = (progress.loaded / progress.total) * 100;
                 });
               });
-          $scope.imageArray.push(imageObj);
-          console.log($scope.imageArray);
-        }).then(function(){
-          if($scope.imageArray.length == $scope.companyNum){
-            console.log($scope.imageArray.length);
-            console.log($scope.companyNum);
-            window.localStorage.setItem("impressionArray", JSON.stringify($scope.companyDetails));
-            window.localStorage.setItem("imageArray", JSON.stringify($scope.imageArray));
+$scope.imageArray.push(imageObj);
+console.log($scope.imageArray);
+}).then(function(){
+  if($scope.imageArray.length == $scope.companyNum){
+    console.log($scope.imageArray.length);
+    console.log($scope.companyNum);
+    window.localStorage.setItem("impressionArray", JSON.stringify($scope.companyDetails));
+    window.localStorage.setItem("imageArray", JSON.stringify($scope.imageArray));
             //console.log(JSON.parse(localStorage.getItem('impressionArray')));
             //console.log(JSON.parse(localStorage.getItem('imageArray')));
             $scope.getMyPage();
           }
         })
-    });
-  }
+});
+}
 
-  $scope.getMyPage=function(){
+$scope.getMyPage=function(){
     $ionicLoading.hide();  
      // status flag needed to be set to 1 inorder to redirect to vendorView page 
-    console.log("ontime");
-    var statusFlag = 1;
-    window.localStorage.setItem('statusFlag', statusFlag);
-    var currentDate= Math.floor(new Date().getTime()/86400000);
-    window.localStorage.setItem('date', currentDate);
-    window.location= "#/vendorView";
-  }
+     console.log("ontime");
+     var statusFlag = 1;
+     window.localStorage.setItem('statusFlag', statusFlag);
+     var currentDate= Math.floor(new Date().getTime()/86400000);
+     window.localStorage.setItem('date', currentDate);
+     window.location= "#/vendorView";
+   }
 
    $scope.startDay = function(){
     $ionicLoading.show({
       template:'Loading...'
     });
-    $scope.getCompany();
-  }
+$scope.getCompany();
+}
 }])

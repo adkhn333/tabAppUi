@@ -4,7 +4,6 @@
       <img ng-click="showPopup()" src="img/fab2u.png" class="logoImage">
   </div>
  
- 
    <ion-tabs class="tabs-dark tabs-icon-top">
       <ion-tab title="menu" icon="ion-navicon-round" href="#/vendorView/menu">
           <ion-nav-view name="menu">
@@ -28,13 +27,13 @@
 
     <ion-slide-box class="slideSize" 
       does-continue="true" 
-      slide-interval="1000" 
+      slide-interval="10000" 
       does-continue="true" 
       auto-play="true" 
       on-slide-changed="slideHasChanged($index)"
       style="">
       
-    <ion-slide ng-repeat="slide in slides track by $index">
+    <ion-slide ng-repeat="slide in slides track by $index" ng-click="imagePopup($index)">
         <img ng-src="{{slide.targetPath}}"  class="sliderImages"/>
       </ion-slide>
     </ion-slide-box>

@@ -1,7 +1,7 @@
-    // here TabId is the unique id that is assigned to each tab and it is stored in local storage during activation of tab
+    // here tabId is the unique id that is assigned to each tab and it is stored in local storage during activation of tab
     // here debit Id == impressionAssignId
- vendorView.controller('vendorViewCtrl' , ['$scope','$localStorage','$sessionStorage','$timeout', '$ionicModal','$ionicHistory','$ionicSlideBoxDelegate','$ionicPopup',
-  function($scope,$localStorage,$sessionStorage,$timeout,$ionicModal,$ionicHistory,$ionicSlideBoxDelegate,$ionicPopup){  
+ vendorView.controller('vendorViewCtrl' , ['$scope','$localStorage','$sessionStorage','$timeout', '$ionicModal','$ionicHistory','$ionicSlideBoxDelegate','$ionicPopup','$interval',
+  function($scope,$localStorage,$sessionStorage,$timeout,$ionicModal,$ionicHistory,$ionicSlideBoxDelegate,$ionicPopup,$interval){  
     // console.log("vendorView controller working");
     // $scope.history = Object.keys($ionicHistory.viewHistory().views).length;
     // console.log($scope.history);
@@ -13,13 +13,18 @@
 
    $scope.history = $ionicHistory.viewHistory();
     console.log($scope.history);
-
+    $scope.slides=[];
     $localStorage.query= [];
     $localStorage.impressionUsedArray=[];
     $scope.slides = JSON.parse(localStorage.getItem('imageArray'));
     console.log($scope.slides);
-    $scope.slidesLen = $scope.slides.length;
-    
+    try{ 
+      $scope.slidesLen = $scope.slides.length;
+        }catch(e){
+         console.log("no slide");
+       }
+    //$scope.slidesLen = $scope.slides.length;
+   
     var company = [];
     company = JSON.parse(localStorage.getItem('impressionArray'));
     console.log(company);
@@ -79,7 +84,7 @@ if($scope.slidesLen == 1 ){
     var companyArray = [];
     companyArray = JSON.parse(localStorage.getItem('impressionArray'));
     console.log(companyArray);
-    var TabId =window.localStorage.getItem('TabId');
+    var tabId =window.localStorage.getItem('tabId');
     var vendorId =window.localStorage.getItem('vendorId');
     var DebitId = companyArray[i].impressionAssignId;
     var companyId = companyArray[i].companyId;
@@ -90,7 +95,7 @@ if($scope.slidesLen == 1 ){
       userEmail :useremail,
       userMobile : usermobile,
       userQuery : query,
-      tabId : TabId,
+      tabId : tabId,
       vendorId :vendorId,
       debitId : DebitId,
       companyId : companyId,

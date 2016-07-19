@@ -100,7 +100,7 @@ vendorView.config(function($stateProvider, $urlRouterProvider) {
    var state = $injector.get('$state');
    var statusFlag = window.localStorage.getItem('statusFlag');
    var vendorId = window.localStorage.getItem('vendorId');
-   var tab = window.localStorage.getItem('TabId');
+   var tab = window.localStorage.getItem('tabId');
    console.log(vendorId,tab,statusFlag);
    if((vendorId!=null) && (tab!=null) && (statusFlag == 0)){
     state.go('start');

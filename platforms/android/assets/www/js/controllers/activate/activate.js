@@ -44,18 +44,18 @@ vendorView.controller('vendorAppCtrl' , ['$scope','$timeout','$cordovaDevice', f
   $scope.updateTabList = function(code){
     console.log(code);
     console.log('hello');
-    firebase.database().ref('/vendorTab/'+$scope.vendorId).orderByChild("Code").equalTo(code).on('child_added', function(snapshot){
+    firebase.database().ref('/vendorTab/'+$scope.vendorId).orderByChild("code").equalTo(code).on('child_added', function(snapshot){
       console.log("Hello");
       console.log(snapshot.val());
-      var TabId = snapshot.val().TabId;
-      window.localStorage.setItem('TabId',TabId);
+      var tabId = snapshot.val().tabId;
+      window.localStorage.setItem('tabId',tabId);
       window.localStorage.setItem('vendorId',$scope.vendorId);
       console.log("Tab Activated");
       // var deviceId = $cordovaDevice.getUUID();
       // console.log(deviceId);
       var updates = {};
-      updates['/vendorTab/' + $scope.vendorId +'/' +TabId + '/ ActivationDate'] = timeStamp;
-      updates['/vendorTab/' + $scope.vendorId +'/' +TabId + '/ DeviceId'] = deviceId;
+      updates['/vendorTab/' + $scope.vendorId +'/' +tabId + '/ activationDate'] = timeStamp;
+      updates['/vendorTab/' + $scope.vendorId +'/' +tabId + '/ deviceId'] = deviceId;
       firebase.database().ref().update(updates);
       var statusFlag = 0;
       window.localStorage.setItem('statusFlag',statusFlag);

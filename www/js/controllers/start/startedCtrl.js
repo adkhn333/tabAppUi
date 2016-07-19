@@ -24,7 +24,7 @@ vendorView.controller('startedCtrl',['$scope','$timeout','$localStorage','$sessi
       });
     if (j<len) {
       console.log(company,impressionRetrieveArray);
-      var TabId = window.localStorage.getItem('TabId');
+      var tabId = window.localStorage.getItem('tabId');
       firebase.database().ref('impressionDebitted/'+company[j].companyId+'/'+company[j].impressionAssignId).once('value', function(snapshot){
         console.log(j);
         console.log(company[j].companyId);
@@ -72,22 +72,22 @@ vendorView.controller('startedCtrl',['$scope','$timeout','$localStorage','$sessi
           if(data.val().status == "completed" && data.val().impressionAssignId == company[j].impressionAssignId){
             $scope.debitId = data.val().impressionAssignId;            
             $scope.companyId = data.val().companyId;
-            $scope.TabId = data.val().TabId;
+            $scope.tabId = data.val().tabId;
             var debitId = data.val().impressionAssignId;
 
-            var newcampaignkey = firebase.database().ref('/tabCampaign/' + $scope.TabId + '/campaigns/previous').push({
+            var newcampaignkey = firebase.database().ref('/tabCampaign/' + $scope.tabId + '/campaigns/previous').push({
               companyId : $scope.companyId,
               debitId : $scope.debitId
             }).key;
-            firebase.database().ref('/tabCampaign/' + $scope.TabId + '/campaigns/previous/' + newcampaignkey).set({
+            firebase.database().ref('/tabCampaign/' + $scope.tabId + '/campaigns/previous/' + newcampaignkey).set({
               companyId : $scope.companyId,
               debitId : $scope.debitId
             });
             console.log("UpdatedPrevious");
             console.log(debitId);
-            firebase.database().ref('/tabCampaign/' + $scope.TabId + '/campaigns/current').orderByChild('debitId').equalTo(debitId).on('child_added',function(snapshot){
+            firebase.database().ref('/tabCampaign/' + $scope.tabId + '/campaigns/current').orderByChild('debitId').equalTo(debitId).on('child_added',function(snapshot){
               var key = snapshot.key;
-              firebase.database().ref('/tabCampaign/' + $scope.TabId + '/campaigns/current/'+key).remove();
+              firebase.database().ref('/tabCampaign/' + $scope.tabId + '/campaigns/current/'+key).remove();
             })
             console.log('deleted from current');
           }
