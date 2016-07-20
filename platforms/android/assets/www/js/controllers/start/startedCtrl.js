@@ -10,7 +10,12 @@ vendorView.controller('startedCtrl',['$scope','$timeout','$localStorage','$sessi
     console.log(company);
     impressionRetrieveArray = $localStorage.impressionUsedArray;
     console.log(impressionRetrieveArray);
-    var len = company.length;
+    try{
+      var len = company.length;
+    }catch(e){
+      console.log(len);
+
+    }
     var j=0;
     $scope.update(j,len,company,impressionRetrieveArray);
     $scope.submitQuery();
@@ -49,7 +54,9 @@ vendorView.controller('startedCtrl',['$scope','$timeout','$localStorage','$sessi
        $scope.update(j,len,company,impressionRetrieveArray);
        $ionicLoading.hide();
      });
-   };  
+   }else{
+    $ionicLoading.hide();
+   }  
  }
  // checks if used impression is equal to total assigned impression or if today's date is greater than company's endDate 
  // and if true, than move that company details from current to previous path of tab campaigns and change that companies impression status to completed 

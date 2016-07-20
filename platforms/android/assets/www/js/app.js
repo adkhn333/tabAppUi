@@ -105,7 +105,7 @@ vendorView.config(function($stateProvider, $urlRouterProvider) {
    if((vendorId!=null) && (tab!=null) && (statusFlag == 0)){
     state.go('start');
    }
-   else if( (vendorId==null) && (tab==null) && (statusFlag ==null)){
+   else if( (!vendorId) && (!tab) && (!statusFlag )){
      state.go('activate');
    }
    else{
