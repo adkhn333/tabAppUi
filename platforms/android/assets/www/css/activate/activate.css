@@ -69,3 +69,27 @@
 	width: 90%;
 	margin:auto;
 }
+
+
+/* Adnan CSS */
+
+.activate-screen {
+	margin-top: 10%;
+}
+
+.activate-screen > div > img {
+	width: 250px;
+	margin-top: 25%;
+	margin-left: 20%;
+}
+
+
+/* Overrides */
+
+.item-select-override:after {
+	border-top: 8px solid;
+}
+
+.item-override {
+	border-radius: 5px;
+}

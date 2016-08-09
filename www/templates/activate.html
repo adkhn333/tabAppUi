@@ -1,35 +1,45 @@
 <ion-view>
-  <ion-content delegate-handle="mainScroll" class="activateContent">
-    <div align="center"><img src="img/fab2u.png" class="mainImage"></div>
-    <form >
-         <!-- Get city name as cityName and city Id as cityId from database on page load -->
-        <div class="inputWrappersActivate">
-          <div class="inputLabelActivate" >City</div>
-          <select ng-model="cityId" 
-            ng-change="search(cityId)"
-            class="activateSelectors"> 
-            <option 
-              ng-repeat="city in cities track by $index" 
-              value="{{city.cityId}}">
-              {{city.cityName}}
-            </option>
-          </select>
-        </div>
+  <div class="row activate-screen">
+    <div class="col">
+      <img src="img/fab2u.png">
+    </div>
+    <form class="col">
+        <!-- Get city name as cityName and city Id as cityId from database on page load -->
 
-        <div >
-          <div class="wrapperActivate">
-            <div class="inputTextActivate">Vendor</div>
-            <input type="text" 
+        <div class="list list-inset">
+          <label class="item item-input item-select item-select-override item-override">
+            <div class="input-label">
+              City
+            </div>
+            <select 
+              ng-model="cityId" 
+              ng-change="search(cityId)">
+              <option 
+                ng-repeat="city in cities track by $index" 
+                value="{{city.cityId}}">
+                {{city.cityName}}  
+              </option>
+            </select>
+          </label>
+        </div>
+        
+        <div class="list list-inset">
+          <label class="item item-input item-override">
+            <input 
+              type="text" 
+              placeholder="Vendor"
+              id="setSizeFontActivate" 
+              ng-model="vendorName"
+              ng-change="unsetName()">
+          </label>
+          <label class="item item-input item-override">
+            <input 
+              type="text" 
+              placeholder="Code"
               id="setSizeFontActivate" 
               class="inputItemActivate" 
-              ng-model="vendorName"
-              ng-change="unsetName()"
-              >
-          </div>
-          <div class="wrapperActivate">
-            <div class="inputTextActivate">Code</div>
-            <input type="text" id="setSizeFontActivate" class="inputItemActivate" ng-model="code" >
-          </div>
+              ng-model="code">
+          </label>
         </div>
         <div class="vendorList">
           <h4 ng-show="fullName!='' && fullName!=undefined">Selected Vendor : {{fullName}}</h4> 
@@ -47,7 +57,6 @@
             SUBMIT
           </button>
         </div>
-        </form>
     </form>
-  </ion-content>
+  </div>
 </ion-view>

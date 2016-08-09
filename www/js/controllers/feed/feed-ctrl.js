@@ -1,4 +1,5 @@
-vendorView.controller('FeedCtrl', ['$scope','$timeout', function($scope, $timeout){
+// REMOVED FROM THE APP
+vendorView.controller('FeedCtrl', ['$scope','$timeout', function($scope, $timeout) {
 	console.log("test");
 	var ref = firebase.database().ref().child("blogs");
 	console.log(ref);

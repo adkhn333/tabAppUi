@@ -41,3 +41,54 @@ ul.rating li i {
 	right:10%;
 	border-radius:100%;
 }
+
+
+/* Adnan */
+
+.review ion-content {
+	padding: 10px 50px;
+	border: 1px solid #3d3d3d;
+	border-radius: 25px;
+	top: 65px;
+	height: 90%;
+}
+
+.review .card {
+	border: 1px solid #3d3d3d;
+	border-radius: 10px;
+}
+
+.review .card .nameReview {
+	color: black;
+}
+
+#reviewButton{
+	width: 100px;
+	height: 100px;
+	position:absolute;
+	bottom:1%;
+	right:5%;
+	border-radius:50%;
+}
+
+#reviewButton:before {
+	font-size: 35px;
+}
+
+#reviewButton > span {
+	display: block;
+	margin-top:-10px;
+}
+
+.reviewPopUp .popup {
+	min-width: 500px !important;
+	margin-left: 25%;
+}
+
+.reviewPopUp-body div label {
+	border-radius: 5px;
+}
+
+.reviewPopUp-body div label textarea {
+	min-height: 100px;
+}

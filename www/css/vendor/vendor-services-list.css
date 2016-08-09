@@ -1,6 +1,6 @@
 #vendor-services {
-	width: 100%;
-	height: 80%;
+	/*width: 100%;
+	height: 80%;*/
 }
 
 #vendor-services .vendor-services-header {
@@ -191,4 +191,20 @@ background-color: #ff8386;
 padding:7px;
 border-top-right-radius: 15px;
 border-bottom-right-radius: 15px;
+}
+
+
+/* Adnan */
+
+#vendor-services ion-content {
+	padding: 10px 50px;
+	border: 1px solid #3d3d3d;
+	border-radius: 25px;
+	top: 65px;
+	height: 70%;
+}
+
+#vendor-services .category-title {
+	background-color: #3d3d3d;
+	width: 25%;
 }

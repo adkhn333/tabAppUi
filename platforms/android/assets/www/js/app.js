@@ -4,7 +4,7 @@
 // angular.module is a global place for creating, registering and retrieving Angular modules
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
-var vendorView = angular.module('vendorView', ['ionic','ngStorage','ngCordova','ngTouch'])
+var vendorView = angular.module('vendorView', ['ionic','ngStorage','ngCordova','ngTouch', 'ionic.closePopup'])
 
 vendorView.run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -105,7 +105,7 @@ vendorView.config(function($stateProvider, $urlRouterProvider) {
    if((vendorId!=null) && (tab!=null) && (statusFlag == 0)){
     state.go('start');
    }
-   else if( (!vendorId) && (!tab) && (!statusFlag )){
+   else if( (vendorId==null) && (tab==null) && (statusFlag ==null)){
      state.go('activate');
    }
    else{

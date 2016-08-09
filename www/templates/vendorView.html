@@ -1,40 +1,65 @@
-<ion-view cache-view="false">
-<ion-content>
-  <div class="bar bar-header bar-dark ">
-      <img ng-click="showPopup()" src="img/fab2u.png" class="logoImage">
-  </div>
- 
-   <ion-tabs class="tabs-dark tabs-icon-top">
-      <ion-tab title="menu" icon="ion-navicon-round" href="#/vendorView/menu">
-          <ion-nav-view name="menu">
-          </ion-nav-view>
-      </ion-tab>
-      <ion-tab title="gallery" icon="ion-images" href="#/vendorView/gallery">
-          <ion-nav-view name="gallery" >
-          </ion-nav-view>
-      </ion-tab>
-       <ion-tab title="reviews" icon="ion-star" href="#/vendorView/reviews">
-         <ion-nav-view name="reviews">
-          </ion-nav-view>
-      </ion-tab>
-      <ion-tab title="fabBook" icon="ion-ios-bookmarks" href="#/vendorView/feed">
-         <ion-nav-view name="feed">
-          </ion-nav-view>
-      </ion-tab>
-  </ion-tabs>
-
-  </ion-content>
-
-    <ion-slide-box class="slideSize" 
-      does-continue="true" 
-      slide-interval="10000" 
-      does-continue="true" 
-      auto-play="true" 
-      on-slide-changed="slideHasChanged($index)"
-      style="">
+<ion-view cache-view="false" class="vendorView-view">
+    <div class="row">
+        <div class="col col-33">
+            <ion-slides
+                ng-style="{height: '{{height}}px'}"
+                options="options" 
+                slider="slider">
+                <ion-slide-page 
+                    ng-repeat="slide in slides track by $index" 
+                    ng-click="imagePopup($index)">
+                    <img style="height: 94%" ng-src="{{slide.imageLink}}">
+                    <!--<img style="height: 94%" ng-src="{{slide.targetPath}}">-->
+                </ion-slide-page>
+            </ion-slides>
+            <!--<ion-slide-box 
+                class="slideSize"
+                slide-interval="10000"
+                does-continue="true" 
+                auto-play="true"
+                on-slide-changed="slideHasChanged($index)">
+            
+                <ion-slide ng-repeat="slide in slides track by $index" ng-click="imagePopup($index)">
+                    <img ng-src="{{slide.targetPath}}"  class="sliderImages"/>
+                </ion-slide>
+            </ion-slide-box>-->
+        </div>
+        <div class="col col-67">
+            <div class="fb-header">
+                <span>Saundarya Shree Beauty Parlour</span>
+                <img ng-click="showPopup()" src="img/fab2u.png" class="logoImage">
+                <p>Gurgaon</p>
+            </div>
+            <ion-tabs class="fb-ion-tabs tabs-icon-top has-header">
+                <ion-tab title="menu" icon="ion-navicon-round" href="#/vendorView/menu">
+                    <ion-nav-view name="menu">
+                    </ion-nav-view>
+                </ion-tab>
+                <ion-tab title="gallery" icon="ion-images" href="#/vendorView/gallery">
+                    <ion-nav-view name="gallery" >
+                    </ion-nav-view>
+                </ion-tab>
+                <ion-tab title="reviews" icon="ion-star" href="#/vendorView/reviews">
+                    <ion-nav-view name="reviews">
+                    </ion-nav-view>
+                </ion-tab>
+                <ion-tab title="fabBook" icon="ion-ios-bookmarks" href="#/vendorView/feed">
+                    <ion-nav-view name="feed">
+                    </ion-nav-view>
+                </ion-tab>
+            </ion-tabs>
+        </div>
+    </div>
+    <!--<ion-slide-box 
+        class="slideSize" 
+        does-continue="true" 
+        slide-interval="10000" 
+        does-continue="true" 
+        auto-play="true" 
+        on-slide-changed="slideHasChanged($index)">
       
-    <ion-slide ng-repeat="slide in slides track by $index" ng-click="imagePopup($index)">
-        <img ng-src="{{slide.targetPath}}"  class="sliderImages"/>
-      </ion-slide>
-    </ion-slide-box>
+        <ion-slide ng-repeat="slide in slides track by $index" ng-click="imagePopup($index)">
+            <img ng-src="{{slide.targetPath}}"  class="sliderImages"/>
+        </ion-slide>
+    </ion-slide-box>-->
 </ion-view> 

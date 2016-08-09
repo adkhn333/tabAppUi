@@ -1,17 +1,23 @@
 <ion-view class="review">
 	<ion-content>
-		<div class="card" id="reviewCard">
+		<!--<div class="card" id="reviewCard">-->
+		<div class="card" ng-repeat="review in reviewList">
 		  <div class="item">
-		    <p class="nameReview">Kanti Upadhyay</p>
+		    <p class="nameReview">{{review.name}}</p>
 		    <p align="right">
-		    	<i class="ion-ios-star" id="starRatingOn" ng-repeat="item in [0,1,2,3,4]"></i>
+					<!--<i class="ion-android-star" id="starRatingOn" ng-repeat="item in [0,1,2,3,4]"></i>-->
+					<span ng-repeat="item in [0,1,2,3,4] track by $index">
+						<i class="ion-android-star" id="starRatingOn" ng-if="$index < review.rating"></i>
+						<i class="ion-android-star-outline" id="starRatingOn" ng-if="$index >= review.rating"></i>
+					</span>
 		    </p>
-		    <p class="cityReview">Gurgaon</p>
+		    <p class="cityReview">{{review.city}}</p>
 		    <hr>
-		    <p class="reviewReview">Excellent job done by hair stylist ! I have no hair left.</p>
+		    <p class="reviewReview">{{review.description}}</p>
 		  </div>
 		</div>
-		<button class="button button-calm icon ion-ios-star" id="reviewButton" ng-click="reviewPopUp()">
-		</button>
 	</ion-content>
+	<button class="button button-calm icon ion-ios-star" id="reviewButton" ng-click="reviewPopUp()">
+		<span>Rate Now</span>
+	</button>
 </ion-view>

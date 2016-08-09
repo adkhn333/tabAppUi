@@ -1,19 +1,22 @@
-<div class="card" style="margin-right:-10px;margin-left:-10px;">
-      <div class="list">
-        <label class="item item-input">
-          <input type="text" required placeholder="Name" ng-model="data.username">
-        </label>
-        <label class="item item-input">
-          <input type="email" required placeholder="Email" ng-model="data.useremail">
-        </label>
-        <label class="item item-input">
-          <input type="number"  required placeholder="Mobile" ng-model="data.usermobile">
-        </label>
-        <label class="item item-input">
-          <textarea required placeholder="Your Query" ng-model="data.query"></textarea>
-        </label>
-
-      <ionic-ratings ratingsobj='ratingsObject'  ></ionic-ratings>  
-
-      </div>
-</div>
+<div class="list reviewPopUp-body">
+    <label class="item item-input">
+      <input type="text" placeholder="Name" ng-model="data.username">
+    </label>
+    <label class="item item-input">
+      <input type="email" placeholder="Email" ng-model="data.useremail">
+    </label>
+    <label class="item item-input">
+      <input type="number" placeholder="Mobile" ng-model="data.usermobile">
+    </label>
+    <label for="">
+      <ionic-ratings ratingsobj='ratingsObject'></ionic-ratings>
+    </label>
+    <div>
+      <label class="item item-input">
+        <textarea placeholder="Write Review" ng-model="data.query"></textarea>
+      </label>  
+    </div>  
+    <div>
+      <button class="button button-assertive button-full" ng-click="submit(data)">SUBMIT</button>
+    </div>
+  </div>

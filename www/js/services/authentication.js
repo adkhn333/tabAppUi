@@ -2,11 +2,7 @@ vendorView.service('Services', ['$timeout', '$localStorage', '$sessionStorage',
     function($timeout, $localStorage, $sessionStorage) {
         var Obj = {};
         Obj = {
-            myFunc: function() {
-                console.log('Hello');
-            },
-
-                synchronize: function() {
+            synchronize: function() {
                 console.log('sync worked');
                 var impressionRetrieveArray = [];
                 var company = [];
@@ -81,7 +77,7 @@ vendorView.service('Services', ['$timeout', '$localStorage', '$sessionStorage',
                         })
                     })
                 }
-            }
+            } // checks if impression status is completed then update
         };
         return Obj;
     }]

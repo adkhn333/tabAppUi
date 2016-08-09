@@ -4,6 +4,7 @@
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: 100% 100%;
+	height: 100%;
 }
 .textStartDay{
 	color:#334455;
@@ -12,4 +13,19 @@
     margin-top:35%;
     width:50%;
     height: 50%;
+}
+
+/* Adnan */
+
+.startBack div img {
+	margin-top: 10%;
+}
+
+.startBack div h3 {
+	font-size: 40px;
+	color: #ff8386;
+}
+
+.startBack div p {
+	font-size: 25px;
 }

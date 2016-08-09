@@ -11,3 +11,60 @@
 .sliderImages{
 	width:100%;
 }
+
+/* Adnan */
+
+.vendorView-view .row > .col:first-child > img {
+	width: 100%;
+}
+
+.fb-header {
+	background-color: #3D3D3D;
+	padding: 15px;
+}
+.fb-header > * {
+	color: #fff;
+}
+
+.fb-header span {
+	font-size: 25px;
+}
+.fb-header img {
+	width: 150px;
+	position: absolute;
+	right: 25px;
+}
+
+.fb-ion-tabs > .tab-nav {
+	position: absolute;
+	top: 90px !important;
+	width: 65%;
+	background-image: none;
+}
+
+.fb-ion-tabs > .tab-nav{
+	background-color: #3d3d3d !important;
+	color: #fff;
+}
+
+.fb-ion-tabs > ion-nav-view > ion-view {
+	width: 65.3%;
+}
+
+
+/* Adnan */
+
+.vendorView-view ion-slides img {
+	border: 2px solid #3d3d3d;
+	border-radius: 15px;
+}
+
+.vendorView-view ion-content .row > .col:first-child > ion-slides > img {
+	min-height: 90%; 
+	margin-top:5%; 
+	overflow: hidden;
+}
+
+.vendorView-view ion-content .row > .col:last-child {
+	padding: 0;
+}

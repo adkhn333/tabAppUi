@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<!-- saved from url=(0039)http://localhost:8100/#/vendorView/menu -->
+<html ng-app="vendorView"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><style type="text/css">@charset "UTF-8";[ng\:cloak],[ng-cloak],[data-ng-cloak],[x-ng-cloak],.ng-cloak,.x-ng-cloak,.ng-hide:not(.ng-hide-animate){display:none !important;}ng\:form{display:block;}.ng-animate-shim{visibility:hidden;}.ng-anchor{position:absolute;}</style>
+    
+    <script src="./localhost_files/cb=gapi.loaded_0" async=""></script><script>
+      // Injected Ionic Go To URL Live Reload Plugin
+      window.LiveReloadPlugin_IonicGoToUrl = (function() {
+        var GOTO_KEY = "__ionic_goto_url__";
+        var HISTORY_GO_KEY = "__ionic_history_go__";
+        var GoToUrlPlugin = function(window, host) {
+          this.window = window;
+          this.host = host;
+        }
+        GoToUrlPlugin.identifier = "__ionic_goto_url__";
+        GoToUrlPlugin.version = "1.0";
+        GoToUrlPlugin.prototype.reload = function(path) {
+          try {
+            if(path) {
+              if(path.indexOf(GOTO_KEY) === 0) {
+                this.window.document.location = path.replace(GOTO_KEY, "");
+                return true;
+              }
+              if(path.indexOf(HISTORY_GO_KEY) === 0) {
+                this.window.document.history.go( parseInt(path.replace(HISTORY_GO_KEY, ""), 10));
+                return true;
+              }
+            }
+          } catch(e) {
+            console.log(e);
+          }
+          return false;
+        };
+        return GoToUrlPlugin;
+      })();
+    </script>
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+    <link href="./localhost_files/ionic.css" rel="stylesheet">
+    <link href="./localhost_files/style.css" rel="stylesheet">
+     <script src="./localhost_files/ionic.bundle.js"></script>
+     <script src="./localhost_files/ionic-close-popup.js"></script>
+     <!-- cordova script (this will be a 404 during development) -->
+    <script src="./localhost_files/cordova.js"></script>
+    <script src="./localhost_files/ng-cordova.min.js"></script>
+
+    <script src="./localhost_files/ngStorage.min.js"></script>
+    <script src="./localhost_files/angular-touch.min.js"></script>
+    <script src="./localhost_files/TweenMax.min.js"></script>
+   
+    <script src="./localhost_files/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      // var config = {
+      //   apiKey: "AIzaSyBOEaXIgk8SNS71FeFl9GxRfzCz00VGfv0",
+      //   authDomain: "vendor-tab-app-a09cb.firebaseapp.com",
+      //   databaseURL: "https://vendor-tab-app-a09cb.firebaseio.com",
+      //   storageBucket: "vendor-tab-app-a09cb.appspot.com",
+      // };
+      // firebase.initializeApp(config);
+      var config = {
+        apiKey: "AIzaSyDa9pgCtyauD81lqrEsivo1RBWeQkyCW1s",
+        authDomain: "vendortab-c6a46.firebaseapp.com",
+        databaseURL: "https://vendortab-c6a46.firebaseio.com",
+        storageBucket: "vendortab-c6a46.appspot.com",
+      };
+      firebase.initializeApp(config);
+    </script>
+
+    <script src="./localhost_files/app.js"></script>
+    <!-- ionic/angularjs js -->
+    <script src="./localhost_files/authentication.js"></script>
+    <!-- Controllers -->
+    <script src="./localhost_files/vendorView.js"></script>
+    <script src="./localhost_files/vendor-services-list.js"></script>
+    <script src="./localhost_files/vendor-details-ctrl.js"></script>
+    <script src="./localhost_files/feed-ctrl.js"></script>
+    <script src="./localhost_files/activate.js"></script>
+    <script src="./localhost_files/startCtrl.js"></script>
+    <script src="./localhost_files/startedCtrl.js"></script>
+    <script src="./localhost_files/review-ctrl.js"></script>
+<script type="text/javascript" charset="UTF-8" src="./localhost_files/api.js" gapi_processed="true"></script></head>
+<body class="grade-b platform-browser platform-android platform-android4 platform-android4_3 platform-ready">
+    <ion-nav-view class="view-container" nav-view-transition="android" nav-view-direction="none" nav-swipe="">
+    <ion-view cache-view="false" class="vendorView-view pane" state="vendorView" nav-view="active" style="transform: translate3d(0%, 0px, 0px); opacity: 1;">
+    <ion-content style="overflow-y: hidden" class="scroll-content ionic-scroll overflow-scroll"><div class="scroll">
+        <div class="row">
+            <div class="col col-33">
+                <ion-slides ng-style="{&#39;height&#39;: height}" style="height: 800px;" options="options" slider="slider"><div class="swiper-container swiper-container-vertical swiper-container-android"><div class="swiper-wrapper" ng-transclude="" style="transform: translate3d(0px, -2400px, 0px); transition-duration: 0ms;"><div class="swiper-slide swiper-slide-duplicate" ng-click="imagePopup($index)" data-swiper-slide-index="2" style="height: 800px;">
+                        <img style="min-height: 90%; margin-top:5%; overflow: hidden" ng-src="http://cdn.trendir.com/wp-content/uploads/old/house-design/cool-netherlands-house-redesigned-with-contemporary-volumes-and-voids-12.jpg" src="./localhost_files/cool-netherlands-house-redesigned-with-contemporary-volumes-and-voids-12.jpg">
+                    </div>
+                    <!-- ngRepeat: slide in slides track by $index --><div class="swiper-slide" ng-transclude="" ng-repeat="slide in slides track by $index" ng-click="imagePopup($index)" data-swiper-slide-index="0" style="height: 800px;">
+                        <img style="min-height: 90%; margin-top:5%; overflow: hidden" ng-src="http://i2.asntown.net/4/bugatti-veyron-grand-sport-convertible-vertical-blur.jpg" src="./localhost_files/bugatti-veyron-grand-sport-convertible-vertical-blur.jpg">
+                    </div><!-- end ngRepeat: slide in slides track by $index --><div class="swiper-slide swiper-slide-prev" ng-transclude="" ng-repeat="slide in slides track by $index" ng-click="imagePopup($index)" data-swiper-slide-index="1" style="height: 800px;">
+                        <img style="min-height: 90%; margin-top:5%; overflow: hidden" ng-src="http://i-cdn.phonearena.com/images/phones/48831-xlarge/Nokia-Lumia-735.jpg" src="./localhost_files/Nokia-Lumia-735.jpg">
+                    </div><!-- end ngRepeat: slide in slides track by $index --><div class="swiper-slide swiper-slide-active" ng-transclude="" ng-repeat="slide in slides track by $index" ng-click="imagePopup($index)" data-swiper-slide-index="2" style="height: 800px;">
+                        <img style="min-height: 90%; margin-top:5%; overflow: hidden" ng-src="http://cdn.trendir.com/wp-content/uploads/old/house-design/cool-netherlands-house-redesigned-with-contemporary-volumes-and-voids-12.jpg" src="./localhost_files/cool-netherlands-house-redesigned-with-contemporary-volumes-and-voids-12.jpg">
+                    </div><!-- end ngRepeat: slide in slides track by $index -->
+                <div class="swiper-slide swiper-slide-duplicate swiper-slide-next" ng-click="imagePopup($index)" data-swiper-slide-index="0" style="height: 800px;">
+                        <img style="min-height: 90%; margin-top:5%; overflow: hidden" ng-src="http://i2.asntown.net/4/bugatti-veyron-grand-sport-convertible-vertical-blur.jpg" src="./localhost_files/bugatti-veyron-grand-sport-convertible-vertical-blur.jpg">
+                    </div></div><div ng-hide="!showPager" class="swiper-pagination"><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet"></span><span class="swiper-pagination-bullet swiper-pagination-bullet-active"></span></div></div></ion-slides>
+                <!--<ion-slide-box 
+                    class="slideSize"
+                    slide-interval="10000"
+                    does-continue="true" 
+                    auto-play="true"
+                    on-slide-changed="slideHasChanged($index)">
+                
+                    <ion-slide ng-repeat="slide in slides track by $index" ng-click="imagePopup($index)">
+                        <img ng-src="{{slide.targetPath}}"  class="sliderImages"/>
+                    </ion-slide>
+                </ion-slide-box>-->
+            </div>
+            <div class="col col-67">
+                <div class="fb-header">
+                    <span>Saundarya Shree Beauty Parlour</span>
+                    <img ng-click="showPopup()" src="./localhost_files/fab2u.png" class="logoImage">
+                    <p>Gurgaon</p>
+                </div>
+                <ion-tabs class="fb-ion-tabs tabs-icon-top has-header tabs-top tabs-striped"><div class="tab-nav tabs">
+                    <ion-tab icon="ion-navicon-round" href="#/vendorView/menu"></ion-tab>
+                    <ion-tab icon="ion-images" href="#/vendorView/gallery"></ion-tab>
+                    <ion-tab icon="ion-star" href="#/vendorView/reviews"></ion-tab>
+                    <ion-tab icon="ion-ios-bookmarks" href="#/vendorView/feed"></ion-tab>
+                <a ng-class="{&#39;has-badge&#39;:badge, &#39;tab-hidden&#39;:isHidden(), &#39;tab-item-active&#39;: isTabActive()}" ng-disabled="disabled()" class="tab-item tab-item-active" icon="ion-navicon-round"><!-- ngIf: badge --><!-- ngIf: getIcon() --><i class="icon ion-navicon-round" ng-if="getIcon()"></i><!-- end ngIf: getIcon() --><span class="tab-title ng-binding" ng-bind-html="title">menu</span></a><a ng-class="{&#39;has-badge&#39;:badge, &#39;tab-hidden&#39;:isHidden(), &#39;tab-item-active&#39;: isTabActive()}" ng-disabled="disabled()" class="tab-item" icon="ion-images"><!-- ngIf: badge --><!-- ngIf: getIcon() --><i class="icon ion-images" ng-if="getIcon()"></i><!-- end ngIf: getIcon() --><span class="tab-title ng-binding" ng-bind-html="title">gallery</span></a><a ng-class="{&#39;has-badge&#39;:badge, &#39;tab-hidden&#39;:isHidden(), &#39;tab-item-active&#39;: isTabActive()}" ng-disabled="disabled()" class="tab-item" icon="ion-star"><!-- ngIf: badge --><!-- ngIf: getIcon() --><i class="icon ion-star" ng-if="getIcon()"></i><!-- end ngIf: getIcon() --><span class="tab-title ng-binding" ng-bind-html="title">reviews</span></a><a ng-class="{&#39;has-badge&#39;:badge, &#39;tab-hidden&#39;:isHidden(), &#39;tab-item-active&#39;: isTabActive()}" ng-disabled="disabled()" class="tab-item" icon="ion-ios-bookmarks"><!-- ngIf: badge --><!-- ngIf: getIcon() --><i class="icon ion-ios-bookmarks" ng-if="getIcon()"></i><!-- end ngIf: getIcon() --><span class="tab-title ng-binding" ng-bind-html="title">fabBook</span></a></div><ion-nav-view name="menu" class="view-container tab-content" nav-view="active" nav-view-transition="android" nav-view-direction="none" nav-swipe="">
+                        <ion-view id="vendor-services" class="pane" state="vendorView.menu" nav-view="active" style="transform: translate3d(0%, 0px, 0px); opacity: 1;">
+    <ion-content delegate-handle="mainScroll" class="has-header scroll-content ionic-scroll overflow-scroll  has-tabs-top"><div class="scroll">
+        <!-- ngRepeat: x in services --><div class="category" ng-repeat="x in services">
+            <div class="category-title ng-binding">Blow dry</div>
+            <!-- ngRepeat: y in x.value --><div class="category-content" ng-repeat="y in x.value">
+                <span class="category-status ng-hide" ng-show="selectedServices[y.service]"></span>
+                <div class="category-name ng-binding">Variable1 acc to data</div>
+                <div class="category-price">
+                    <strike>
+                        <span class="striked-text ng-binding">₹6000 </span>
+                        <span class="line-arrow right" style="position:relative;bottom:0px ;left:3px;"></span>
+                    </strike>&nbsp;
+                    <span class="ng-binding">₹600</span>
+                </div>
+            </div><!-- end ngRepeat: y in x.value -->
+        </div><!-- end ngRepeat: x in services --><div class="category" ng-repeat="x in services">
+            <div class="category-title ng-binding">Hair dry</div>
+            <!-- ngRepeat: y in x.value --><div class="category-content" ng-repeat="y in x.value">
+                <span class="category-status ng-hide" ng-show="selectedServices[y.service]"></span>
+                <div class="category-name ng-binding">Variable2 according to data</div>
+                <div class="category-price">
+                    <strike>
+                        <span class="striked-text ng-binding">₹6000 </span>
+                        <span class="line-arrow right" style="position:relative;bottom:0px ;left:3px;"></span>
+                    </strike>&nbsp;
+                    <span class="ng-binding">₹600</span>
+                </div>
+            </div><!-- end ngRepeat: y in x.value --><div class="category-content" ng-repeat="y in x.value">
+                <span class="category-status ng-hide" ng-show="selectedServices[y.service]"></span>
+                <div class="category-name ng-binding">Variable3 according to data</div>
+                <div class="category-price">
+                    <strike>
+                        <span class="striked-text ng-binding">₹6000 </span>
+                        <span class="line-arrow right" style="position:relative;bottom:0px ;left:3px;"></span>
+                    </strike>&nbsp;
+                    <span class="ng-binding">₹600</span>
+                </div>
+            </div><!-- end ngRepeat: y in x.value --><div class="category-content" ng-repeat="y in x.value">
+                <span class="category-status ng-hide" ng-show="selectedServices[y.service]"></span>
+                <div class="category-name ng-binding">Variable4 according to data</div>
+                <div class="category-price">
+                    <strike>
+                        <span class="striked-text ng-binding">₹6000 </span>
+                        <span class="line-arrow right" style="position:relative;bottom:0px ;left:3px;"></span>
+                    </strike>&nbsp;
+                    <span class="ng-binding">₹600</span>
+                </div>
+            </div><!-- end ngRepeat: y in x.value -->
+        </div><!-- end ngRepeat: x in services --><div class="category" ng-repeat="x in services">
+            <div class="category-title ng-binding">Hair dry</div>
+            <!-- ngRepeat: y in x.value --><div class="category-content" ng-repeat="y in x.value">
+                <span class="category-status ng-hide" ng-show="selectedServices[y.service]"></span>
+                <div class="category-name ng-binding">Variable acc to data</div>
+                <div class="category-price">
+                    <strike>
+                        <span class="striked-text ng-binding">₹6000 </span>
+                        <span class="line-arrow right" style="position:relative;bottom:0px ;left:3px;"></span>
+                    </strike>&nbsp;
+                    <span class="ng-binding">₹600</span>
+                </div>
+            </div><!-- end ngRepeat: y in x.value --><div class="category-content" ng-repeat="y in x.value">
+                <span class="category-status ng-hide" ng-show="selectedServices[y.service]"></span>
+                <div class="category-name ng-binding">Variable acc to data</div>
+                <div class="category-price">
+                    <strike>
+                        <span class="striked-text ng-binding">₹6000 </span>
+                        <span class="line-arrow right" style="position:relative;bottom:0px ;left:3px;"></span>
+                    </strike>&nbsp;
+                    <span class="ng-binding">₹600</span>
+                </div>
+            </div><!-- end ngRepeat: y in x.value -->
+        </div><!-- end ngRepeat: x in services --><div class="category" ng-repeat="x in services">
+            <div class="category-title ng-binding">Blow dry</div>
+            <!-- ngRepeat: y in x.value --><div class="category-content" ng-repeat="y in x.value">
+                <span class="category-status ng-hide" ng-show="selectedServices[y.service]"></span>
+                <div class="category-name ng-binding">Variable1 acc to data</div>
+                <div class="category-price">
+                    <strike>
+                        <span class="striked-text ng-binding">₹6000 </span>
+                        <span class="line-arrow right" style="position:relative;bottom:0px ;left:3px;"></span>
+                    </strike>&nbsp;
+                    <span class="ng-binding">₹600</span>
+                </div>
+            </div><!-- end ngRepeat: y in x.value -->
+        </div><!-- end ngRepeat: x in services --><div class="category" ng-repeat="x in services">
+            <div class="category-title ng-binding">Hair dry</div>
+            <!-- ngRepeat: y in x.value --><div class="category-content" ng-repeat="y in x.value">
+                <span class="category-status ng-hide" ng-show="selectedServices[y.service]"></span>
+                <div class="category-name ng-binding">Variable2 according to data</div>
+                <div class="category-price">
+                    <strike>
+                        <span class="striked-text ng-binding">₹6000 </span>
+                        <span class="line-arrow right" style="position:relative;bottom:0px ;left:3px;"></span>
+                    </strike>&nbsp;
+                    <span class="ng-binding">₹600</span>
+                </div>
+            </div><!-- end ngRepeat: y in x.value --><div class="category-content" ng-repeat="y in x.value">
+                <span class="category-status ng-hide" ng-show="selectedServices[y.service]"></span>
+                <div class="category-name ng-binding">Variable3 according to data</div>
+                <div class="category-price">
+                    <strike>
+                        <span class="striked-text ng-binding">₹6000 </span>
+                        <span class="line-arrow right" style="position:relative;bottom:0px ;left:3px;"></span>
+                    </strike>&nbsp;
+                    <span class="ng-binding">₹600</span>
+                </div>
+            </div><!-- end ngRepeat: y in x.value --><div class="category-content" ng-repeat="y in x.value">
+                <span class="category-status ng-hide" ng-show="selectedServices[y.service]"></span>
+                <div class="category-name ng-binding">Variable4 according to data</div>
+                <div class="category-price">
+                    <strike>
+                        <span class="striked-text ng-binding">₹6000 </span>
+                        <span class="line-arrow right" style="position:relative;bottom:0px ;left:3px;"></span>
+                    </strike>&nbsp;
+                    <span class="ng-binding">₹600</span>
+                </div>
+            </div><!-- end ngRepeat: y in x.value -->
+        </div><!-- end ngRepeat: x in services --><div class="category" ng-repeat="x in services">
+            <div class="category-title ng-binding">Hair dry</div>
+            <!-- ngRepeat: y in x.value --><div class="category-content" ng-repeat="y in x.value">
+                <span class="category-status ng-hide" ng-show="selectedServices[y.service]"></span>
+                <div class="category-name ng-binding">Variable acc to data</div>
+                <div class="category-price">
+                    <strike>
+                        <span class="striked-text ng-binding">₹6000 </span>
+                        <span class="line-arrow right" style="position:relative;bottom:0px ;left:3px;"></span>
+                    </strike>&nbsp;
+                    <span class="ng-binding">₹600</span>
+                </div>
+            </div><!-- end ngRepeat: y in x.value --><div class="category-content" ng-repeat="y in x.value">
+                <span class="category-status ng-hide" ng-show="selectedServices[y.service]"></span>
+                <div class="category-name ng-binding">Variable acc to data</div>
+                <div class="category-price">
+                    <strike>
+                        <span class="striked-text ng-binding">₹6000 </span>
+                        <span class="line-arrow right" style="position:relative;bottom:0px ;left:3px;"></span>
+                    </strike>&nbsp;
+                    <span class="ng-binding">₹600</span>
+                </div>
+            </div><!-- end ngRepeat: y in x.value -->
+        </div><!-- end ngRepeat: x in services -->
+    </div></ion-content>
+</ion-view></ion-nav-view></ion-tabs>
+            </div>
+        </div>
+    </div></ion-content>
+    <!--<ion-slide-box 
+        class="slideSize" 
+        does-continue="true" 
+        slide-interval="10000" 
+        does-continue="true" 
+        auto-play="true" 
+        on-slide-changed="slideHasChanged($index)">
+      
+        <ion-slide ng-repeat="slide in slides track by $index" ng-click="imagePopup($index)">
+            <img ng-src="{{slide.targetPath}}"  class="sliderImages"/>
+        </ion-slide>
+    </ion-slide-box>-->
+</ion-view></ion-nav-view>
+
+<script>//<![CDATA[
+document.write('<script src="//' + (location.hostname || 'localhost') + ':35729/livereload.js?snipver=1"><\/script>')
+//]]></script><script src="./localhost_files/livereload.js"></script>
+
+
+<div class="backdrop"></div><iframe frameborder="0" hspace="0" marginheight="0" marginwidth="0" scrolling="no" tabindex="0" vspace="0" width="100%" id="I0_1470222543264" name="I0_1470222543264" src="./localhost_files/iframe.html" style="position: absolute; top: -100px; width: 1px; height: 1px;"></iframe></body></html>

@@ -1,3 +1,4 @@
+// REMOVED FROM THE APP
 app.controller("newFeedCtrl", ['$scope', '$timeout', function($scope, $timeout){
    uid = localStorage.getItem("uid");
    console.log(uid);

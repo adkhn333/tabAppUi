@@ -1,9 +1,10 @@
 <ion-view class="vendorDetails">
-	<ion-content>
-		<div class="row row-10" id="tabS">
-			<div class="col col-30 tabA" ng-click="changeSlide(1)" ng-class="currentValue==1? 'tabB':'tabA'">				<p>Gallery</p>
+	<ion-content style="bottom:0" class="has-subheader">
+		<!--<div class="row row-10" id="tabS">
+			<div class="col col-30 tabA" ng-click="changeSlide(1)" ng-class="currentValue==1? 'tabB':'tabA'">
+				<p>Gallery</p>
 			</div>
-		</div>
+		</div>-->
 		<ion-slide-box on-slide-changed="slideHasChanged($index)" id="tabsSlider" delegate-handle="vendorMainDetails">
 			<ion-slide>
 			    <div class="gallery">
